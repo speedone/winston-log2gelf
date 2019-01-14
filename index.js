@@ -46,13 +46,15 @@ class Log2gelf extends Transport {
      * @return {int} level
      */
     levelToInt(level) { // eslint-disable-line
-        if (level === 'error') return 0;
-        if (level === 'warn') return 1;
-        if (level === 'info') return 2;
-        if (level === 'verbose') return 3;
-        if (level === 'debug') return 4;
-        if (level === 'silly') return 5;
-
+        if (level === 'emerg') return 0;
+        if (level === 'alert') return 1;
+        if (level === 'crit') return 2;
+        if (level === 'error') return 3;
+        if (level === 'warn' || level === 'warning') return 4;
+        if (level === 'notice') return 5;
+        if (level === 'info') return 6;
+        if (level === 'verbose' || level === 'debug' || level === 'silly') return 7;
+        
         return 0;
     }
 
